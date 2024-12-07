@@ -6,3 +6,5 @@ steps:
 
 images:
 - 'gcr.io/$PROJECT_ID/nginx-app:$COMMIT_SHA'
+
+logsBucket: gs://ggai-zulip
