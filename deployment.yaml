@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: gcr.io/zulip-gogatewayai/nginx-app:latest
+        image: gcr.io/zulip-gogatewayai/nginx-app:${COMMIT_SHA}
         ports:
         - containerPort: 80
 
