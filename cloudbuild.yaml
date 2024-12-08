@@ -1,8 +1,8 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/nginx-app:latest', '.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/nginx-app:$COMMIT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/nginx-app:latest']
+  args: ['push', 'gcr.io/$PROJECT_ID/nginx-app:$COMMIT_SHA']
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'deployment.yaml']
   env:
@@ -11,6 +11,6 @@ steps:
 
 
 images:
-- 'gcr.io/$PROJECT_ID/nginx-app:latest'
+- 'gcr.io/$PROJECT_ID/nginx-app:$COMMIT_SHA'
 
 logsBucket: gs://ggai-zulip
